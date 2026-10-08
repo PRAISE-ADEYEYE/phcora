@@ -26,13 +26,13 @@ section.b{padding:56px 0}.stat b{display:block;font-size:2.8rem;font-weight:800;
 .shell{display:grid;grid-template-columns:272px minmax(0,1fr);grid-template-rows:minmax(0,1fr);height:100dvh}
 .side{background:linear-gradient(180deg,#0b3b3c,#082b2c);color:#fff;padding:calc(20px + env(safe-area-inset-top,0px)) 16px 20px;display:flex;flex-direction:column;gap:8px}
 .nav a{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:12px;text-decoration:none;font-weight:700;font-size:1.1rem;color:#cfe3df}.nav a svg{width:24px;height:24px;flex:none}
-.nav a[aria-current=page]{background:rgba(255,255,255,.14);color:#fff;box-shadow:inset 3px 0 0 #7ee0cf}.nav a:hover:not([aria-current]){background:rgba(255,255,255,.12)}
+.nav a[aria-current=page]{background:rgba(255,255,255,.14);color:#fff}.nav a:hover:not([aria-current]){background:rgba(255,255,255,.12)}
 .side .btn.inst{background:#fff;color:var(--brand);border-color:#fff;margin-top:8px}
 .usr{margin-top:auto;font-size:.95rem;font-weight:600;display:flex;flex-direction:column;gap:10px;word-break:break-word}.usr .btn{min-height:44px;border-color:#fff;color:#fff;background:transparent}
 .pane{overflow:auto;padding:32px 36px;min-width:0}.pane:not(.fl)>*{max-width:1180px;margin-left:auto;margin-right:auto}.pane:not(.fl)>.grid{margin-top:16px}.pane.fl{padding:0;overflow:hidden}.ph{margin-bottom:20px}.ph p{margin-top:6px;font-size:1.1rem}
 .kpi b{display:block;font-size:2.6rem;font-weight:800;line-height:1.05;font-variant-numeric:tabular-nums;letter-spacing:-.03em}.kpi span{font-weight:700;color:var(--mut)}
 .bar{height:14px;background:var(--line);border-radius:7px;overflow:hidden;margin:6px 0 14px}.bar i{display:block;height:100%;border-radius:7px}
-.act{position:relative;padding-left:50px}.act:before{content:"";position:absolute;left:22px;top:30px;width:12px;height:12px;border-radius:50%;background:var(--c);box-shadow:0 0 0 5px color-mix(in srgb,var(--c) 16%,transparent)}.act b{font-size:1.15rem}
+.act b{display:inline-block;background:var(--c);color:#fff;padding:3px 14px;border-radius:999px;font-size:.95rem;margin-bottom:6px}
 .pill{display:inline-block;font-size:.85rem;font-weight:800;padding:3px 12px;border-radius:999px;color:#fff;white-space:nowrap}
 .row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.row:last-child{border:0}
 .bnav,.mtop{display:none}
@@ -51,20 +51,26 @@ section.b{padding:56px 0}.stat b{display:block;font-size:2.8rem;font-weight:800;
 .cf{display:flex;gap:10px;padding:14px 20px calc(14px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);background:#fff}.cf input{flex:1;min-width:0;min-height:54px;border:2px solid var(--line);border-radius:14px;padding:0 16px;font-weight:600}
 .ip{position:fixed;z-index:50;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));width:min(440px,calc(100% - 32px));display:flex;gap:14px;align-items:flex-start}.ip svg{width:52px;height:52px;flex:none}
 .gate{max-width:480px;margin:12vh auto;text-align:center;display:flex;flex-direction:column;gap:16px;align-items:center}
+.mo{position:fixed;inset:0;z-index:100;background:rgba(8,28,29,.5);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;transition:opacity .18s ease}.mo.in{opacity:1}
+.mb{width:min(420px,100%);background:#fff;border-radius:22px;padding:28px;box-shadow:0 30px 70px rgba(8,28,29,.35);transform:translateY(12px) scale(.97);transition:transform .22s cubic-bezier(.2,.8,.2,1)}.mo.in .mb{transform:none}
+.mb svg{width:48px;height:48px;margin-bottom:14px}.mb p{margin-top:8px}.ma{display:flex;gap:12px;margin-top:24px}.ma .btn{flex:1}.btn:disabled{opacity:.6;cursor:wait}
+@media (max-width:600px){.mo{align-items:flex-end;padding:0}.mb{width:100%;border-radius:22px 22px 0 0;padding-bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateY(40px)}}
+@media (prefers-reduced-motion:reduce){.mo,.mb{transition:none}}
 @media (max-width:900px){
  .shell{grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto}.side{display:none}
  .mtop{display:flex;align-items:center;gap:10px;background:var(--brand);color:#fff;padding:calc(10px + env(safe-area-inset-top,0px)) 14px 10px}.mtop .lg svg{width:34px;height:34px}.mtop .btn{min-height:42px;padding:0 16px;border-color:#fff;color:#fff;background:transparent}
- .bnav{display:flex;background:#fff;border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}.bnav a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 4px;text-decoration:none;font-weight:700;font-size:.85rem;color:var(--mut)}.bnav a svg{width:26px;height:26px}.bnav a[aria-current=page]{color:var(--brand);box-shadow:inset 0 3px 0 var(--brand)}
+ .bnav{display:flex;background:#fff;border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}.bnav a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 4px;text-decoration:none;font-weight:700;font-size:.85rem;color:var(--mut)}.bnav a svg{width:26px;height:26px}.bnav a[aria-current=page]{color:var(--brand);background:#e6f0ee;border-radius:12px}
  .pane{padding:18px}.ch{grid-template-columns:minmax(0,1fr)}.hist{display:none}.ch.hs .hist{display:flex;position:absolute;inset:0;z-index:5}
  .sel{left:14px;right:14px;width:auto;bottom:14px}.lgd{display:none}.ms{width:calc(100% - 28px)}}
 </style></head><body><div id="app"></div>
+<script src="/config.js"></script>
 <script src="/pwa.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js" crossorigin></script>
 <script type="module">
 import {initializeApp} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 import {getAuth,onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 /* The Firebase web config is public by design. Server secrets live only in the Worker. Leave api empty when the Worker serves this site. */
-const CFG={api:"",fb:{apiKey:"AIzaSyCvTsFAeM1uaCm8JFbI9LJGg2aPzWZkpIw",authDomain:"phcora-83970.firebaseapp.com",projectId:"phcora-83970",storageBucket:"phcora-83970.firebasestorage.app",messagingSenderId:"788455193969",appId:"1:788455193969:web:addb0d9218efbe908e4ad0"},
+const CFG={api:(window.PHCORA&&PHCORA.api)||"",fb:{apiKey:"AIzaSyCvTsFAeM1uaCm8JFbI9LJGg2aPzWZkpIw",authDomain:"phcora-83970.firebaseapp.com",projectId:"phcora-83970",storageBucket:"phcora-83970.firebasestorage.app",messagingSenderId:"788455193969",appId:"1:788455193969:web:addb0d9218efbe908e4ad0"},
  fac:"/data/facilities.geojson",lga:"/data/lga.geojson",cal:"/data/calibration.json"};
 const AC={Resupply:"#c2410c","Verify then resupply":"#1d4ed8",Verify:"#7c3aed",Watch:"#2f7d5b"};
 const SUGG=["Which LGAs have the most facilities needing resupply?","Where is hidden risk concentrated?","Which facilities have the least reliable reporting?","Why is the top ranked facility flagged?","What data is real and what is simulated?","What should a supply officer do first this month?"];
@@ -86,12 +92,19 @@ function route(){const p=location.pathname.replace(/\/+$/,"")||"/";if(map){map.r
  if(!user){location.replace("/auth/?next="+encodeURIComponent(location.pathname));return}
  const s=p.split("/")[2];if(!NAV.some(n=>n[0]==s)){go("/dashboard/overview",1);return}shell(s)}
 const instBtn=c=>`<button class="btn inst ${c||""}" hidden>Install app</button>`;
+function confirmOut(){if($("#mo"))return;const prev=document.activeElement,m=document.createElement("div");m.id="mo";m.className="mo";
+ m.innerHTML=`<div class="mb" role="alertdialog" aria-modal="true" aria-labelledby="mt" aria-describedby="md">${LOGO}<h3 id="mt">Are you sure you want to sign out?</h3><p id="md" class="mut">You can sign back in at any time.</p><div class="ma"><button class="btn o" id="mc" type="button">Cancel</button><button class="btn" id="mx" type="button">Sign out</button></div></div>`;
+ document.body.append(m);requestAnimationFrame(()=>m.classList.add("in"));$("#mc").focus();
+ const key=e=>{if(e.key=="Escape")close();else if(e.key=="Tab"){e.preventDefault();const f=[$("#mc"),$("#mx")],i=f.indexOf(document.activeElement);f[(i+(e.shiftKey?1:1))%2].focus()}};
+ function close(){document.removeEventListener("keydown",key);m.classList.remove("in");setTimeout(()=>{m.remove();prev&&prev.focus&&prev.focus()},200)}
+ document.addEventListener("keydown",key);m.onclick=e=>{if(e.target==m)close()};$("#mc").onclick=close;
+ $("#mx").onclick=async()=>{const x=$("#mx"),c=$("#mc");x.disabled=c.disabled=true;x.textContent="Signing out...";try{await signOut(auth)}catch(e){x.disabled=c.disabled=false;x.textContent="Sign out"}}}
 function shell(s){document.title=NAV.find(n=>n[0]==s)[1]+" | PHCORA";
  const links=NAV.map(n=>`<a href="/dashboard/${n[0]}" data-link ${n[0]==s?'aria-current="page"':""}>${IC[n[0]]}<span>${n[1]}</span></a>`).join("");
  $("#app").innerHTML=`<div class="shell"><aside class="side"><a class="lg" href="/" style="margin:0 8px 22px;color:#fff">${LOGO}PHCORA</a><nav class="nav">${links}</nav>${instBtn()}<div class="usr"><span>${esc(user.displayName||user.email)}</span><button class="btn" id="so">Sign out</button></div></aside>
  <div class="mtop"><a class="lg" href="/" style="color:#fff">${LOGO}</a><span class="sp"></span>${instBtn()}<button class="btn" id="so2">Sign out</button></div>
  <main class="pane ${s=="overview"?"":"fl"}" id="pane"></main><nav class="bnav">${links}</nav></div>`;
- $("#so").onclick=$("#so2").onclick=()=>signOut(auth);window.phSync&&phSync();
+ $("#so").onclick=$("#so2").onclick=confirmOut;window.phSync&&phSync();
  ({overview,insight,map:mapView})[s]()}
 async function overview(){const p=$("#pane");p.innerHTML='<h2>Loading</h2>';await loadData();
  const n=a=>F.filter(f=>f.action==a).length,has=F.length>0,tr=has?Math.round(F.reduce((s,f)=>s+f.trust,0)/F.length*100)+"%":"n/a";
@@ -119,12 +132,12 @@ function drawMsgs(){const m=$("#msgs");if(!m)return;if(!chat.msgs.length){m.inne
  else{m.innerHTML=chat.msgs.map(x=>`<div class="m ${x.r}">${md(x.t)}</div>`).join("");m.scrollTop=m.scrollHeight}}
 async function listConvs(){const h=$("#hist");if(!h)return;
  try{convs=(await api("/api/conversations")).conversations||[];h.innerHTML=`<button class="btn" id="nc">New chat</button>`+(convs.length?convs.map(c=>`<button class="cv ${c.id==chat.id?"on":""}" data-id="${esc(c.id)}">${esc(c.title)}</button>`).join(""):'<p class="mut" style="padding:8px;font-weight:600">No saved conversations yet.</p>')}
- catch(e){h.innerHTML=`<button class="btn" id="nc">New chat</button><p class="mut" style="padding:8px;font-weight:600">History needs the PHCORA backend with Firestore, which is not connected yet.</p>`}
+ catch(e){h.innerHTML=`<button class="btn" id="nc">New chat</button><p class="mut" style="padding:8px;font-weight:600">History is unavailable until the Worker address is set in config.js.</p>`}
  $("#nc").onclick=()=>{chat={id:null,msgs:[]};$("#ch").classList.remove("hs");drawMsgs();listConvs()};
  $$(".cv").forEach(b=>b.onclick=async()=>{try{const c=await api("/api/conversations/"+b.dataset.id);chat={id:c.id,msgs:c.messages.map(x=>({r:x.role=="user"?"u":"a",t:x.content}))}}catch(e){chat={id:null,msgs:[{r:"e",t:"Could not open this conversation."}]}}$("#ch").classList.remove("hs");drawMsgs();listConvs()})}
 async function send(q){chat.msgs.push({r:"u",t:q},{r:"a",t:"Thinking..."});drawMsgs();
  try{const j=await api("/api/chat",{method:"POST",body:JSON.stringify({conversationId:chat.id,message:q})});chat.id=j.conversationId;chat.msgs.pop();chat.msgs.push({r:"a",t:j.answer});drawMsgs();listConvs()}
- catch(e){chat.msgs.pop();chat.msgs.push({r:"e",t:"The PHCORA assistant is not connected yet. It needs the backend with the Groq and Gemini keys."});drawMsgs()}}
+ catch(e){chat.msgs.pop();chat.msgs.push({r:"e",t:"The assistant is not reachable. Check the Worker address in config.js and that the Worker is deployed."});drawMsgs()}}
 /* Map: OpenFreeMap vector style recoloured in a Google Maps palette, the approach used in Traxx. No API key needed. */
 const PAL={land:"#f3f2ee",water:"#aadaff",park:"#c8e6c3",bldg:"#e5e2db",minorF:"#fff",minorC:"#dad8d1",priF:"#fff4cc",priC:"#e3cc83",motF:"#f9c76b",motC:"#e0a84a",bnd:"#a9acb2",tx:"#5f6368",halo:"#fff"};
 function recolor(st){const P=PAL,put=(l,g,k,v)=>{(l[g]=l[g]||{})[k]=v};
