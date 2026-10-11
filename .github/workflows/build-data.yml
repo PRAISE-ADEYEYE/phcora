@@ -1,1 +1,48 @@
+name: Build PHCORA data
 
+on:
+  workflow_dispatch:
+    inputs:
+      facilities_url:
+        description: "Direct download link to the GRID3 health facilities file (CSV or GeoJSON)"
+        required: true
+      lga_url:
+        description: "Direct download link to the LGA boundaries file (GeoJSON)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Download, clean, simulate and score
+        env:
+          FAC_URL: ${{ github.event.inputs.facilities_url }}
+          LGA_URL: ${{ github.event.inputs.lga_url }}
+        run: python3 pipeline/build_data.py --facilities "$FAC_URL" --lga "$LGA_URL"
+
+      - name: Validate the output
+        run: python3 pipeline/validate_data.py data
+
+      - name: Commit the generated data
+        run: |
+          git config user.name "phcora-data-bot"
+          git config user.email "phcora-data-bot@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update generated data"
+            git push
+          fi
