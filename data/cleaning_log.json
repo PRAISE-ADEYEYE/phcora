@@ -1,0 +1,50 @@
+{
+ "lgas_in_selected_states": 90,
+ "lgas_by_state": {
+  "anambra": 21,
+  "osun": 30,
+  "taraba": 16,
+  "sokoto": 23
+ },
+ "facility_rows_read": 51022,
+ "columns_used": {
+  "name": "facility_name",
+  "state": "state",
+  "type": "facility_level",
+  "lat": "latitude",
+  "lon": "longitude"
+ },
+ "rows_in_selected_states": 5997,
+ "type_columns_used": [
+  "facility_level",
+  "facility_level_option"
+ ],
+ "facility_types_found": {
+  "Primary | Primary Health Center": 2386,
+  "Primary | Health Post": 1399,
+  "Primary | Primary Health Clinic": 1302,
+  "Primary | Unknown": 227,
+  "Secondary | Primary Health Clinic": 183,
+  "Secondary | Unknown": 174,
+  "Secondary | Primary Health Center": 122,
+  "Secondary | General Hospital": 92,
+  "Tertiary | General Hospital": 72,
+  "Tertiary | Teaching/Tertiary\u00a0Hospital": 10,
+  "Tertiary | Primary Health Clinic": 8,
+  "Secondary | Health Post": 5,
+  "Primary | General Hospital": 5,
+  "Tertiary | Specialized Hospital": 4,
+  "Secondary | Teaching/Tertiary\u00a0Hospital": 3
+ },
+ "rows_after_primary_level_filter": 5314,
+ "dropped": {
+  "not_inside_any_selected_lga": 69
+ },
+ "clinics_after_cleaning": 5245,
+ "clinics_by_state": {
+  "osun": 1624,
+  "sokoto": 892,
+  "anambra": 1342,
+  "taraba": 1387
+ }
+}

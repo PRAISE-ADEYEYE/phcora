@@ -1,0 +1,48 @@
+{
+ "real": [
+  "Facility names and locations (GRID3)",
+  "LGA boundaries",
+  "State survey shares of PHCs with medications (CheckMyPHC)"
+ ],
+ "simulated": [
+  "Monthly stock, use, receipts and report arrival for every clinic"
+ ],
+ "assumed": {
+  "resupply_lead_time_months": 1.5,
+  "extra_risk_per_missed_report": 0.08,
+  "share_of_clinics_under_demand_surge": 0.22,
+  "share_of_weak_reporters": 0.3,
+  "clinics_under_stress_also_report_less": "yes, missed report chance rises by 0.3 from month 10",
+  "base_monthly_use_packs": "about 60, scaled by facility type and lognormal spread",
+  "receipt_interval_months": "1 for Anambra (real restock answers cluster at 4 weeks), 2 elsewhere",
+  "risk_threshold": 0.4,
+  "trust_threshold": 0.6
+ },
+ "calibration_by_state": {
+  "taraba": {
+   "target_share_with_medications": 0.689,
+   "achieved_share_in_simulator": 0.69,
+   "receipt_failure_rate": 0.408,
+   "receipt_interval_months": 2
+  },
+  "sokoto": {
+   "target_share_with_medications": 0.755,
+   "achieved_share_in_simulator": 0.754,
+   "receipt_failure_rate": 0.35,
+   "receipt_interval_months": 2
+  },
+  "anambra": {
+   "target_share_with_medications": 0.803,
+   "achieved_share_in_simulator": 0.802,
+   "receipt_failure_rate": 0.159,
+   "receipt_interval_months": 1
+  },
+  "osun": {
+   "target_share_with_medications": 0.391,
+   "achieved_share_in_simulator": 0.39,
+   "receipt_failure_rate": 0.655,
+   "receipt_interval_months": 2
+  }
+ },
+ "seed": 7
+}

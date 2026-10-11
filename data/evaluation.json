@@ -1,0 +1,97 @@
+{
+ "note": "Computed entirely inside the simulator. It shows how the method behaves under stated assumptions, not accuracy on real clinics.",
+ "clinics": 5245,
+ "visits_per_cycle": 524,
+ "simulated_worlds": 60,
+ "share_of_clinics_with_shortfall_next_month": {
+  "mean": 0.584,
+  "sd": 0.007
+ },
+ "precision_of_visits": {
+  "triage": {
+   "mean": 0.74,
+   "sd": 0.019
+  },
+  "stale_stock": {
+   "mean": 0.938,
+   "sd": 0.011
+  },
+  "least_reliable": {
+   "mean": 0.64,
+   "sd": 0.023
+  },
+  "random": {
+   "mean": 0.584,
+   "sd": 0.021
+  }
+ },
+ "share_of_true_shortfalls_reached": {
+  "triage": {
+   "mean": 0.127,
+   "sd": 0.003
+  },
+  "stale_stock": {
+   "mean": 0.161,
+   "sd": 0.003
+  },
+  "least_reliable": {
+   "mean": 0.109,
+   "sd": 0.004
+  },
+  "random": {
+   "mean": 0.1,
+   "sd": 0.003
+  }
+ },
+ "hidden_risk_capture_among_weak_reporters": {
+  "triage": {
+   "mean": 0.401,
+   "sd": 0.01
+  },
+  "stale_stock": {
+   "mean": 0.144,
+   "sd": 0.01
+  }
+ },
+ "sensitivity_precision_by_extra_risk_per_missed_report": {
+  "0": {
+   "mean": 0.741,
+   "sd": 0.019
+  },
+  "0.08": {
+   "mean": 0.74,
+   "sd": 0.019
+  },
+  "0.2": {
+   "mean": 0.74,
+   "sd": 0.019
+  }
+ },
+ "calibration": [
+  {
+   "predicted": 0.039,
+   "observed": 0.11,
+   "clinics": 62289
+  },
+  {
+   "predicted": 0.151,
+   "observed": 0.281,
+   "clinics": 33649
+  },
+  {
+   "predicted": 0.291,
+   "observed": 0.519,
+   "clinics": 43028
+  },
+  {
+   "predicted": 0.515,
+   "observed": 0.871,
+   "clinics": 66697
+  },
+  {
+   "predicted": 0.833,
+   "observed": 0.797,
+   "clinics": 109037
+  }
+ ]
+}
