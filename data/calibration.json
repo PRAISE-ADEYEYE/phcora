@@ -1,0 +1,475 @@
+{
+ "_provenance": "Derived from CheckMyPHC (Orodata Science, CC BY) state level PHC survey summaries uploaded by the team. Aggregate counts only: no facility rows, dates or coordinates. Survey years not stated in files.",
+ "supplies": {
+  "osun": {
+   "Syringes": {
+    "available": 19,
+    "not_available": 50,
+    "n": 69,
+    "share_available": 0.275
+   },
+   "Bandages": {
+    "available": 18,
+    "not_available": 51,
+    "n": 69,
+    "share_available": 0.261
+   },
+   "Gloves": {
+    "available": 16,
+    "not_available": 53,
+    "n": 69,
+    "share_available": 0.232
+   },
+   "Personal Protective Equipment": {
+    "available": 18,
+    "not_available": 51,
+    "n": 69,
+    "share_available": 0.261
+   },
+   "Injection Ample": {
+    "available": 14,
+    "not_available": 55,
+    "n": 69,
+    "share_available": 0.203
+   },
+   "GV Ink": {
+    "available": 20,
+    "not_available": 49,
+    "n": 69,
+    "share_available": 0.29
+   },
+   "Scissors": {
+    "available": 33,
+    "not_available": 36,
+    "n": 69,
+    "share_available": 0.478
+   },
+   "Methylated Spirit": {
+    "available": 29,
+    "not_available": 40,
+    "n": 69,
+    "share_available": 0.42
+   },
+   "Dis-infectant": {
+    "available": 24,
+    "not_available": 45,
+    "n": 69,
+    "share_available": 0.348
+   },
+   "Medications": {
+    "available": 27,
+    "not_available": 42,
+    "n": 69,
+    "share_available": 0.391
+   },
+   "Blood Pressure Apparatus": {
+    "available": 24,
+    "not_available": 45,
+    "n": 69,
+    "share_available": 0.348
+   },
+   "Weighing Scale": {
+    "available": 42,
+    "not_available": 27,
+    "n": 69,
+    "share_available": 0.609
+   },
+   "Thermometer": {
+    "available": 35,
+    "not_available": 34,
+    "n": 69,
+    "share_available": 0.507
+   },
+   "Drip": {
+    "available": 18,
+    "not_available": 51,
+    "n": 69,
+    "share_available": 0.261
+   },
+   "Working Fridge for Vaccine": {
+    "available": 22,
+    "not_available": 47,
+    "n": 69,
+    "share_available": 0.319
+   },
+   "Oxygen Gas for Patient": {
+    "available": 5,
+    "not_available": 64,
+    "n": 69,
+    "share_available": 0.072
+   },
+   "Stretcher": {
+    "available": 12,
+    "not_available": 57,
+    "n": 69,
+    "share_available": 0.174
+   },
+   "Drip Stand": {
+    "available": 30,
+    "not_available": 39,
+    "n": 69,
+    "share_available": 0.435
+   }
+  },
+  "anambra": {
+   "Syringes": {
+    "available": 40,
+    "not_available": 26,
+    "n": 66,
+    "share_available": 0.606
+   },
+   "Bandages": {
+    "available": 28,
+    "not_available": 38,
+    "n": 66,
+    "share_available": 0.424
+   },
+   "Gloves": {
+    "available": 40,
+    "not_available": 26,
+    "n": 66,
+    "share_available": 0.606
+   },
+   "Personal Protective Equipment": {
+    "available": 29,
+    "not_available": 37,
+    "n": 66,
+    "share_available": 0.439
+   },
+   "Injection Ample": {
+    "available": 45,
+    "not_available": 21,
+    "n": 66,
+    "share_available": 0.682
+   },
+   "GV Ink": {
+    "available": 38,
+    "not_available": 28,
+    "n": 66,
+    "share_available": 0.576
+   },
+   "Scissors": {
+    "available": 50,
+    "not_available": 16,
+    "n": 66,
+    "share_available": 0.758
+   },
+   "Methylated Spirit": {
+    "available": 48,
+    "not_available": 18,
+    "n": 66,
+    "share_available": 0.727
+   },
+   "Dis-infectant": {
+    "available": 41,
+    "not_available": 25,
+    "n": 66,
+    "share_available": 0.621
+   },
+   "Medications": {
+    "available": 53,
+    "not_available": 13,
+    "n": 66,
+    "share_available": 0.803
+   },
+   "Blood Pressure Apparatus": {
+    "available": 52,
+    "not_available": 14,
+    "n": 66,
+    "share_available": 0.788
+   },
+   "Weighing Scale": {
+    "available": 41,
+    "not_available": 25,
+    "n": 66,
+    "share_available": 0.621
+   },
+   "Thermometer": {
+    "available": 48,
+    "not_available": 18,
+    "n": 66,
+    "share_available": 0.727
+   },
+   "Drip": {
+    "available": 45,
+    "not_available": 21,
+    "n": 66,
+    "share_available": 0.682
+   },
+   "Working Fridge for Vaccine": {
+    "available": 47,
+    "not_available": 19,
+    "n": 66,
+    "share_available": 0.712
+   },
+   "Oxygen Gas for Patient": {
+    "available": 4,
+    "not_available": 62,
+    "n": 66,
+    "share_available": 0.061
+   },
+   "Stretcher": {
+    "available": 7,
+    "not_available": 59,
+    "n": 66,
+    "share_available": 0.106
+   },
+   "Drip Stand": {
+    "available": 37,
+    "not_available": 29,
+    "n": 66,
+    "share_available": 0.561
+   }
+  },
+  "sokoto": {
+   "Syringes": {
+    "available": 35,
+    "not_available": 18,
+    "n": 53,
+    "share_available": 0.66
+   },
+   "Bandages": {
+    "available": 30,
+    "not_available": 23,
+    "n": 53,
+    "share_available": 0.566
+   },
+   "Gloves": {
+    "available": 35,
+    "not_available": 18,
+    "n": 53,
+    "share_available": 0.66
+   },
+   "Personal Protective Equipment": {
+    "available": 34,
+    "not_available": 19,
+    "n": 53,
+    "share_available": 0.642
+   },
+   "Injection Ample": {
+    "available": 34,
+    "not_available": 19,
+    "n": 53,
+    "share_available": 0.642
+   },
+   "GV Ink": {
+    "available": 19,
+    "not_available": 34,
+    "n": 53,
+    "share_available": 0.358
+   },
+   "Scissors": {
+    "available": 32,
+    "not_available": 21,
+    "n": 53,
+    "share_available": 0.604
+   },
+   "Methylated Spirit": {
+    "available": 34,
+    "not_available": 19,
+    "n": 53,
+    "share_available": 0.642
+   },
+   "Dis-infectant": {
+    "available": 36,
+    "not_available": 17,
+    "n": 53,
+    "share_available": 0.679
+   },
+   "Medications": {
+    "available": 40,
+    "not_available": 13,
+    "n": 53,
+    "share_available": 0.755
+   },
+   "Blood Pressure Apparatus": {
+    "available": 33,
+    "not_available": 20,
+    "n": 53,
+    "share_available": 0.623
+   },
+   "Weighing Scale": {
+    "available": 38,
+    "not_available": 15,
+    "n": 53,
+    "share_available": 0.717
+   },
+   "Thermometer": {
+    "available": 29,
+    "not_available": 24,
+    "n": 53,
+    "share_available": 0.547
+   },
+   "Drip": {
+    "available": 39,
+    "not_available": 14,
+    "n": 53,
+    "share_available": 0.736
+   },
+   "Working Fridge for Vaccine": {
+    "available": 29,
+    "not_available": 24,
+    "n": 53,
+    "share_available": 0.547
+   },
+   "Oxygen Gas for Patient": {
+    "available": 10,
+    "not_available": 43,
+    "n": 53,
+    "share_available": 0.189
+   },
+   "Stretcher": {
+    "available": 25,
+    "not_available": 28,
+    "n": 53,
+    "share_available": 0.472
+   },
+   "Drip Stand": {
+    "available": 27,
+    "not_available": 26,
+    "n": 53,
+    "share_available": 0.509
+   }
+  },
+  "taraba": {
+   "Syringes": {
+    "available": 37,
+    "not_available": 8,
+    "n": 45,
+    "share_available": 0.822
+   },
+   "Bandages": {
+    "available": 28,
+    "not_available": 17,
+    "n": 45,
+    "share_available": 0.622
+   },
+   "Gloves": {
+    "available": 20,
+    "not_available": 25,
+    "n": 45,
+    "share_available": 0.444
+   },
+   "Personal Protective Equipment": {
+    "available": 25,
+    "not_available": 20,
+    "n": 45,
+    "share_available": 0.556
+   },
+   "Injection Ample": {
+    "available": 32,
+    "not_available": 13,
+    "n": 45,
+    "share_available": 0.711
+   },
+   "GV Ink": {
+    "available": 19,
+    "not_available": 26,
+    "n": 45,
+    "share_available": 0.422
+   },
+   "Scissors": {
+    "available": 29,
+    "not_available": 16,
+    "n": 45,
+    "share_available": 0.644
+   },
+   "Methylated Spirit": {
+    "available": 35,
+    "not_available": 10,
+    "n": 45,
+    "share_available": 0.778
+   },
+   "Dis-infectant": {
+    "available": 33,
+    "not_available": 12,
+    "n": 45,
+    "share_available": 0.733
+   },
+   "Medications": {
+    "available": 31,
+    "not_available": 14,
+    "n": 45,
+    "share_available": 0.689
+   },
+   "Blood Pressure Apparatus": {
+    "available": 36,
+    "not_available": 9,
+    "n": 45,
+    "share_available": 0.8
+   },
+   "Weighing Scale": {
+    "available": 35,
+    "not_available": 10,
+    "n": 45,
+    "share_available": 0.778
+   },
+   "Thermometer": {
+    "available": 34,
+    "not_available": 11,
+    "n": 45,
+    "share_available": 0.756
+   },
+   "Drip": {
+    "available": 34,
+    "not_available": 11,
+    "n": 45,
+    "share_available": 0.756
+   },
+   "Working Fridge for Vaccine": {
+    "available": 31,
+    "not_available": 14,
+    "n": 45,
+    "share_available": 0.689
+   },
+   "Oxygen Gas for Patient": {
+    "available": 19,
+    "not_available": 26,
+    "n": 45,
+    "share_available": 0.422
+   },
+   "Stretcher": {
+    "available": 26,
+    "not_available": 19,
+    "n": 45,
+    "share_available": 0.578
+   },
+   "Drip Stand": {
+    "available": 34,
+    "not_available": 11,
+    "n": 45,
+    "share_available": 0.756
+   }
+  }
+ },
+ "restock_weeks": {
+  "benue": {
+   "answered": 26,
+   "no_answer": 27,
+   "counts": {
+    "1 Week": 2,
+    "2 Weeks": 3,
+    "3 Weeks": 4,
+    "4 Weeks": 5,
+    "5 Weeks": 3,
+    "7 Weeks": 1,
+    "8 Weeks": 1,
+    "Greater than 12 Weeks": 7
+   }
+  },
+  "anambra": {
+   "answered": 36,
+   "no_answer": 30,
+   "counts": {
+    "1 Week": 3,
+    "2 Weeks": 2,
+    "3 Weeks": 1,
+    "4 Weeks": 21,
+    "8 Weeks": 1,
+    "11 Weeks": 1,
+    "12 Weeks": 2,
+    "Greater than 12 Weeks": 5
+   }
+  }
+ }
+}
