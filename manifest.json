@@ -48,5 +48,12 @@
    "name": "Ask PHCORA",
    "url": "/dashboard/insight"
   }
- ]
+ ],
+ "related_applications": [
+  {
+   "platform": "webapp",
+   "url": "https://phcora.vercel.app/manifest.json"
+  }
+ ],
+ "prefer_related_applications": false
 }
