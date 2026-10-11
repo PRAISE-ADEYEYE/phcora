@@ -9,7 +9,7 @@ Simulated:  monthly stock, use, receipts and report arrival for every clinic
 Assumed:    every parameter listed in assumptions.json
 Nothing simulated is ever written without simulated=true.
 """
-import argparse, csv, json, math, os, random, re, statistics, zlib
+import argparse, csv, json, math, os, random, re, statistics, urllib.request, zipfile, zlib
 from collections import Counter
 
 RT, TT, LEAD = 0.40, 0.60, 1.5  # risk threshold, trust threshold, resupply lead time in months
@@ -29,6 +29,44 @@ def pick(keys, cands):
         for k in low:
             if c in k: return low[k]
     return None
+
+def unzip_pick(zpath, prefer, folder="raw"):
+    """Pull one CSV or GeoJSON out of a zip file. prefer is a list of words to look for in the file names."""
+    z = zipfile.ZipFile(zpath)
+    names = [n for n in z.namelist() if n.lower().endswith((".geojson", ".json", ".csv")) and "__MACOSX" not in n]
+    if not names: raise SystemExit(f"{zpath} has no CSV or GeoJSON inside (shapefile zips are not supported). Files inside: {z.namelist()[:15]}")
+    pick = None
+    for key in prefer:
+        m = [n for n in names if key in n.lower()]
+        if m: pick = max(m, key=lambda n: z.getinfo(n).file_size); break
+    if pick is None:
+        if len(names) == 1: pick = names[0]
+        else: raise SystemExit(f"{zpath} holds several files and I cannot tell which one to use: {names}. Upload just the right file, or tell me the names.")
+    os.makedirs(folder, exist_ok=True)
+    out = os.path.join(folder, os.path.basename(pick))
+    with open(out, "wb") as f: f.write(z.read(pick))
+    print("extracted", pick, "from", os.path.basename(zpath), "->", out); return out
+
+def fetch(src, folder="raw", prefer=()):
+    """If src is a web link, download it into the raw folder once. If it is a zip, pull the right file out of it. Returns a local path."""
+    src = str(src)
+    if not src.lower().startswith(("http://", "https://")):
+        return unzip_pick(src, prefer, folder) if src.lower().endswith(".zip") else src
+    os.makedirs(folder, exist_ok=True)
+    name = re.sub(r"[^A-Za-z0-9._-]", "_", src.split("?")[0].rstrip("/").split("/")[-1]) or "download"
+    dest = os.path.join(folder, name)
+    if os.path.exists(dest) and os.path.getsize(dest) > 0: print("using cached", dest)
+    else:
+        print("downloading", src)
+        req = urllib.request.Request(src, headers={"User-Agent": "Mozilla/5.0 PHCORA-pipeline"})
+        with urllib.request.urlopen(req, timeout=300) as r, open(dest, "wb") as f: f.write(r.read())
+        print("saved", dest, os.path.getsize(dest), "bytes")
+    head = open(dest, "rb").read(512).lstrip()
+    if head[:2] == b"PK": return unzip_pick(dest, prefer, folder)
+    if head[:1] == b"<": raise SystemExit(f"{src} returned a web page, not a data file. Use the direct link of the file itself, for example a GitHub release link.")
+    if not dest.lower().endswith((".csv", ".geojson", ".json")):
+        new_dest = dest + (".geojson" if head[:1] == b"{" else ".csv"); os.replace(dest, new_dest); dest = new_dest
+    return dest
 
 def read_facilities(path):
     if path.lower().endswith((".geojson", ".json")):
@@ -180,6 +218,7 @@ def main():
     a.add_argument("--states", nargs="+", default=["osun", "anambra", "sokoto", "taraba"])
     a.add_argument("--seed", type=int, default=7); a.add_argument("--inspect", action="store_true", help="print column names and sample values, then stop"); a.add_argument("--keep-all-levels", action="store_true")
     a = a.parse_args(); os.makedirs(a.out, exist_ok=True)
+    a.facilities, a.lga = fetch(a.facilities), fetch(a.lga, prefer=("adm2", "lga"))
     if a.inspect:
         rr = read_facilities(a.facilities); print("FACILITY ROWS", len(rr)); print("COLUMNS", list(rr[0].keys()))
         for key in rr[0]:
