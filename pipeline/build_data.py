@@ -38,6 +38,7 @@ def unzip_pick(zpath, prefer, folder="raw"):
     pick = None
     for key in prefer:
         m = [n for n in names if key in n.lower()]
+        m = [n for n in m if "_em" not in n.lower()] or m
         if m: pick = max(m, key=lambda n: z.getinfo(n).file_size); break
     if pick is None:
         if len(names) == 1: pick = names[0]
@@ -218,7 +219,7 @@ def main():
     a.add_argument("--states", nargs="+", default=["osun", "anambra", "sokoto", "taraba"])
     a.add_argument("--seed", type=int, default=7); a.add_argument("--inspect", action="store_true", help="print column names and sample values, then stop"); a.add_argument("--keep-all-levels", action="store_true")
     a = a.parse_args(); os.makedirs(a.out, exist_ok=True)
-    a.facilities, a.lga = fetch(a.facilities), fetch(a.lga, prefer=("adm2", "lga"))
+    a.facilities, a.lga = fetch(a.facilities), fetch(a.lga, prefer=("admin2", "adm2", "lga"))
     if a.inspect:
         rr = read_facilities(a.facilities); print("FACILITY ROWS", len(rr)); print("COLUMNS", list(rr[0].keys()))
         for key in rr[0]:
@@ -264,7 +265,7 @@ def main():
         seen.add(key)
         lga = next((l for l in L if l["bb"][0] <= lon <= l["bb"][2] and l["bb"][1] <= lat <= l["bb"][3] and any(in_poly(lon, lat, p) for p in l["polys"])), None)
         if not lga: drop["not_inside_any_selected_lga"] += 1; continue
-        segs = [x.strip() for x in r["__type"].split("|") if x.strip()]; ty = next((x for x in segs if re.search(r"primary|phc|health cent|health post|dispensar", x.lower())), segs[0] if segs else "Primary health facility"); mult = next((m for kw, m in TYPE_MULT if kw in ty.lower()), 1.0)
+        segs = [x.strip() for x in r["__type"].split("|") if x.strip()]; ty = max((x for x in segs if re.search(r"primary|phc|health cent|health post|dispensar", x.lower())), key=len, default=(segs[0] if segs else "Primary health facility")); mult = next((m for kw, m in TYPE_MULT if kw in ty.lower()), 1.0)
         clean.append(dict(id=f"F{len(clean) + 1:05d}", name=nm, lga=lga["name"], state=lga["state"], type=ty, c=[round(lon, 5), round(lat, 5)], mult=mult))
     log["dropped"] = dict(drop); log["clinics_after_cleaning"] = len(clean); log["clinics_by_state"] = dict(Counter(c["state"] for c in clean))
     # calibrate per state to real survey shares
