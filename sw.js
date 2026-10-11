@@ -1,4 +1,4 @@
-const V="phcora-v3",SHELL=["/","/auth/","/dashboard/","/pwa.js","/config.js","/manifest.json","/icon.svg","/icon-192.png"],LIB=["cdn.jsdelivr.net","www.gstatic.com","fonts.googleapis.com","fonts.gstatic.com"];
+const V="phcora-v4",SHELL=["/","/auth/","/dashboard/","/pwa.js","/config.js","/manifest.json","/icon.svg","/icon-192.png"],LIB=["cdn.jsdelivr.net","www.gstatic.com","fonts.googleapis.com","fonts.gstatic.com"];
 self.addEventListener("install",e=>{e.waitUntil(caches.open(V).then(c=>Promise.all(SHELL.map(u=>c.add(u).catch(()=>{})))).then(()=>self.skipWaiting()))});
 self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==V).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
 const swr=async(req)=>{const c=await caches.open(V),hit=await c.match(req),net=fetch(req).then(r=>{if(r&&(r.ok||r.type==="opaque"))c.put(req,r.clone());return r}).catch(()=>hit);return hit||net};
